@@ -40,7 +40,7 @@ const routes: Routes = [
   {
     path: '**',
     loadChildren: () =>
-      import('./components/pages/notFound/not-found/not-found.module').then(
+      import('./components/pages/notFound/not-found.module').then(
         m => m.NotFoundModule
       )
   }
