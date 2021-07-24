@@ -33,9 +33,7 @@ const routes: Routes = [
   {
     path: 'about',
     loadChildren: () =>
-      import('./components/pages/about/about/about.module').then(
-        m => m.AboutModule
-      )
+      import('./components/pages/about/about.module').then(m => m.AboutModule)
   },
   {
     path: '**',
