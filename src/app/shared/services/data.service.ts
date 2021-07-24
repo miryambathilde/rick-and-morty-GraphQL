@@ -20,12 +20,6 @@ const QUERY = gql`
         status
         species
         gender
-        origin {
-          name
-        }
-        location {
-          name
-        }
         image
       }
     }
