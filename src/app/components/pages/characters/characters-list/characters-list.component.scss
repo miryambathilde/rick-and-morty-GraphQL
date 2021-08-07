@@ -4,3 +4,29 @@ section.character__list {
   justify-content: center;
   height: auto;
 }
+
+.button {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 3;
+  padding: 1rem;
+  background-color: #540fa1;
+  border: 1px solid #540fa1;
+  color: white;
+  font-weight: 600;
+  border-radius: 20%;
+  cursor: pointer;
+  font-size: 2rem;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    background-color: #2e135a;
+    border: 1px solid whitesmoke;
+    font-size: 2.5rem;
+  }
+}
