@@ -2,7 +2,14 @@
 import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { BehaviorSubject } from 'rxjs';
-import { pluck, take, tap, withLatestFrom } from 'rxjs/operators';
+import {
+  find,
+  mergeMap,
+  pluck,
+  take,
+  tap,
+  withLatestFrom
+} from 'rxjs/operators';
 import {
   Character,
   DataResponse,
@@ -37,10 +44,10 @@ const QUERY = gql`
 })
 export class DataService {
   //metodos privados y observables
-  private episodesSubject = new BehaviorSubject<Episode[]>(null);
+  private episodesSubject = new BehaviorSubject<Episode[]>([]);
   episodes$ = this.episodesSubject.asObservable();
 
-  private charactersSubject = new BehaviorSubject<Character[]>(null);
+  private charactersSubject = new BehaviorSubject<Character[]>([]);
   characters$ = this.charactersSubject.asObservable();
 
   constructor(
@@ -48,6 +55,14 @@ export class DataService {
     private localStorageSvc: LocalStorageService
   ) {
     this.getDataAPI();
+  }
+
+  // esto recorrerá todos los personajes y nos devolverá cada uno de ellos y nos devolverá el que recuperemos por id
+  getDetails(id: number): any {
+    return this.characters$.pipe(
+      mergeMap((characters: Character[]) => characters),
+      find((character: Character) => character?.id === id)
+    );
   }
 
   getCharactersByPage(pageNum: number): void {
