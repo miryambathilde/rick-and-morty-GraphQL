@@ -1,0 +1,4 @@
+<!-- en la directiva ngif usamos el pipe async porque isLoading es un observable -->
+<div class="overlay" *ngIf="isLoading$ | async">
+  <div class="lds-hourglass"></div>
+</div>
