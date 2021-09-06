@@ -1,4 +1,4 @@
-### ✨ [Demo](https://airbb-deploy-firebase-angulargooglemaps.netlify.app/home)
+### ✨ [Demo](https://rickandmortygraphqlangular.netlify.app)
 
 # RickandmortyGraphQL
 
